@@ -1,13 +1,9 @@
 def general_base(dimensions):
     dic_psis = {}
     ranges = [ range(d) for d in dimensions] # ex.:  [0, 1]  [0, 1]  [0, 1]  [0, 1]  [0, 5]  [0, 5]
-    #print(ranges)
     for index in product(* ranges): # product with all combinations
-        #print('i=',index)
         key =  ''.join(str(j) for j in index) # names criation
-        #print(key)
         psi = tensor(*[basis(d, j) for d, j in zip(dimensions, index)]) # vector for each combination
-        #print(psi)
         dic_psis[key] = psi
 
     return dic_psis
