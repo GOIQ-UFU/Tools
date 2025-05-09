@@ -5,7 +5,6 @@ class Thermal():
       return Z
 
   def rho_thermal(self, H_subsystem, kT, method = 'eigensytem'):
-
       if method == 'eigensytem':
           result = 0*qeye((H_subsystem).shape[0])
           eigen_list = H_subsystem.eigenstates()
@@ -19,9 +18,7 @@ class Thermal():
       return result
 
   def rho_thermal_norm(self, H_subsystem, kT,  method = 'eigensytem'):
-      #print(H_subsystem  )
       rho = self.rho_thermal(H_subsystem, kT, method )/  self.partition_function(H_subsystem, kT)
-
       return rho
 
 
